@@ -4,15 +4,15 @@
   
   tasks: 
     - name: install java
-      shell: java.sh
+      command: java.sh
 
     - name: install docker 
-      shell: docker.sh
-      hosts: slave
+      command: docker.sh
+      when: "'slave' in inventory_hostname"
 
     - name: install jenkins
-      shell: jenkins.sh
-      hosts: master
+      command: jenkins.sh
+      when: "'master' in inventory_hostname"
 
 
 
