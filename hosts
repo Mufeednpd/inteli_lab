@@ -1,3 +1,3 @@
 [slave]
-test ansible_host=3.91.87.86 ansible_user=ubuntu ansible_ssh_private_key_file=id_rsa
-prod ansible_host=54.210.127.149 ansible_user=ubuntu ansible_ssh_private_key_file=id_rsa
+test ansible_host=3.91.87.86 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
+prod ansible_host=54.210.127.149 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
