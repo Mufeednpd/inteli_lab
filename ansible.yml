@@ -11,32 +11,32 @@
         owner: root
         group: root        
         mode: 654
-      when: "'slave' in in group_names"
+      when: "'slave' in group_names"
 
     - name: install java on slave
       shell: /home/ubuntu/java.sh
       args:
         executable: /bin/bash
-      when: "'slave' in in group_names"
+      when: "'slave' in group_names"
 
     - name: install java on slave
       shell: /home/ubuntu/inteli_lab/java.sh
       args:
         executable: /bin/bash
-      when: "'master' in in group_names"
+      when: "'master' in group_names"
 
 
     - name: install docker 
       shell: /home/ubuntu/docker.sh
       args:
         executable: /bin/bash
-      when: "'slave' in in group_names"
+      when: "'slave' in group_names"
 
     - name: install jenkins
       shell: /home/ubuntu/inteli_lab/jenkins.sh
       args:
         executable: /bin/bash
-      when: "'master' in in group_names"
+      when: "'master' in group_names"
 
 
 
