@@ -14,11 +14,6 @@
       shell: jenkins.sh
       hosts: master
 
-    - name: Install Ansible
-      package:
-        name: ansible
-        state: present
-      hosts: master
 
 
 
