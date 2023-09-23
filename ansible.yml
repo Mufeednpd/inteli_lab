@@ -4,14 +4,20 @@
   
   tasks: 
     - name: install java
-      shell: java.sh
+      shell: /home/ubuntu/inteli_lab/java.sh
+      args:
+        executable: /bin/bash
 
     - name: install docker 
-      shell: docker.sh
+      shell: /home/ubuntu/inteli_lab/docker.sh
+      args:
+        executable: /bin/bash
       when: "'slave' in inventory_hostname"
 
     - name: install jenkins
-      shell: jenkins.sh
+      shell: /home/ubuntu/inteli_lab/jenkins.sh
+      args:
+        executable: /bin/bash
       when: "'master' in inventory_hostname"
 
 
