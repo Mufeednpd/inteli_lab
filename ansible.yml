@@ -1,49 +1,25 @@
 - hosts: all
   become: yes
   become_method: sudo
-  
   tasks: 
 
-    - name: Copy DB script to server
-      copy:
-        src: .
-        dest: /home/ubuntu
-        owner: ubuntu
-        group: ubuntu       
-        mode: 654
-      when: "'slave' in group_names"
-
     - name: install java on slave
-      shell: /home/ubuntu/java.sh
-      args:
-        executable: /bin/bash
-      when: "'slave' in group_names"
-
-    - name: install java on slave
-      shell: /home/ubuntu/inteli_lab/java.sh
-      args:
-        executable: /bin/bash
-      when: "'master' in group_names"
-
+      script: java.sh
 
     - name: install docker 
-      shell: /home/ubuntu/docker.sh
-      args:
-        executable: /bin/bash
-      when: "'slave' in group_names"
-      tags: docker
-
-    - name: install jenkins
-      shell: /home/ubuntu/inteli_lab/jenkins.sh
-      args:
-        executable: /bin/bash
-      when: "'master' in group_names"
+      script: docker.sh
 
 
+- hosts: localhost
+  connection: local
+  tasks: 
+
+    - name: install java on master
+      script: java.sh
 
 
-
-
+    - name: install jenkis on master
+      script: jenkins.sh
 
 
 
