@@ -3,19 +3,29 @@
   become_method: sudo
   
   tasks: 
+
+    - name: Copy DB script to server
+      copy:
+        src: *.sh
+        dest: /home/ubuntu
+        owner: root
+        group: root        
+        mode: 654
+      when: "'slave' in inventory_hostname"
+
     - name: install java
-      shell: /home/ubuntu/inteli_lab/java.sh
+      shell: /home/ubuntu/java.sh
       args:
         executable: /bin/bash
 
     - name: install docker 
-      shell: /home/ubuntu/inteli_lab/docker.sh
+      shell: /home/ubuntu/docker.sh
       args:
         executable: /bin/bash
       when: "'slave' in inventory_hostname"
 
     - name: install jenkins
-      shell: /home/ubuntu/inteli_lab/jenkins.sh
+      shell: /home/ubuntu/jenkins.sh
       args:
         executable: /bin/bash
       when: "'master' in inventory_hostname"
