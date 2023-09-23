@@ -8,8 +8,8 @@
       copy:
         src: .
         dest: /home/ubuntu
-        owner: root
-        group: root        
+        owner: ubuntu
+        group: ubuntu       
         mode: 654
       when: "'slave' in group_names"
 
