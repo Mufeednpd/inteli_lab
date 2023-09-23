@@ -6,7 +6,7 @@
 
     - name: Copy DB script to server
       copy:
-        src: *.sh
+        src: .
         dest: /home/ubuntu
         owner: root
         group: root        
