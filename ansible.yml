@@ -31,6 +31,7 @@
       args:
         executable: /bin/bash
       when: "'slave' in group_names"
+      tags: docker
 
     - name: install jenkins
       shell: /home/ubuntu/inteli_lab/jenkins.sh
