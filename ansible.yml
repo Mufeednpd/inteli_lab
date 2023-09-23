@@ -13,10 +13,18 @@
         mode: 654
       when: "'slave' in inventory_hostname"
 
-    - name: install java
+    - name: install java on slave
       shell: /home/ubuntu/java.sh
       args:
         executable: /bin/bash
+      when: "'slave' in inventory_hostname"
+
+    - name: install java on slave
+      shell: /home/ubuntu/inteli_lab/java.sh
+      args:
+        executable: /bin/bash
+      when: "'master' in inventory_hostname"
+
 
     - name: install docker 
       shell: /home/ubuntu/docker.sh
@@ -25,7 +33,7 @@
       when: "'slave' in inventory_hostname"
 
     - name: install jenkins
-      shell: /home/ubuntu/jenkins.sh
+      shell: /home/ubuntu/inteli_lab/jenkins.sh
       args:
         executable: /bin/bash
       when: "'master' in inventory_hostname"
