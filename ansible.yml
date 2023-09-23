@@ -1,0 +1,30 @@
+- hosts: all
+  become: yes
+  become_method: sudo
+  
+  tasks: 
+    - name: install java
+      shell: java.sh
+
+    - name: install docker 
+      shell: docker.sh
+      hosts: slave
+
+    - name: install jenkins
+      shell: jenkins.sh
+      hosts: master
+
+    - name: Install Ansible
+      package:
+        name: ansible
+        state: present
+      hosts: master
+
+
+
+
+
+
+
+
+        
