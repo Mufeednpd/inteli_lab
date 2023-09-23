@@ -11,32 +11,32 @@
         owner: root
         group: root        
         mode: 654
-      when: "'slave' in inventory_hostname"
+      when: "'slave' in inventory_groupname"
 
     - name: install java on slave
       shell: /home/ubuntu/java.sh
       args:
         executable: /bin/bash
-      when: "'slave' in inventory_hostname"
+      when: "'slave' in inventory_groupname"
 
     - name: install java on slave
       shell: /home/ubuntu/inteli_lab/java.sh
       args:
         executable: /bin/bash
-      when: "'master' in inventory_hostname"
+      when: "'master' in inventory_groupname"
 
 
     - name: install docker 
       shell: /home/ubuntu/docker.sh
       args:
         executable: /bin/bash
-      when: "'slave' in inventory_hostname"
+      when: "'slave' in inventory_groupname"
 
     - name: install jenkins
       shell: /home/ubuntu/inteli_lab/jenkins.sh
       args:
         executable: /bin/bash
-      when: "'master' in inventory_hostname"
+      when: "'master' in inventory_groupname"
 
 
 
